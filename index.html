@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Order Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form,
+        .receipt {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .product-select {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 15px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+
+        .receipt {
+            display: none;
+        }
+
+        .receipt h3 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .product-summary {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>🛍️ Order Form</h2>
+
+    <form id="orderForm" onsubmit="return handleSubmit(event)">
+        <label>Name:</label>
+        <input type="text" id="name" />
+        <div id="nameError" class="error"></div>
+
+        <label>Phone Number:</label>
+        <input type="text" id="phone" />
+        <div id="phoneError" class="error"></div>
+
+        <label>Email:</label>
+        <input type="text" id="email" />
+        <div id="emailError" class="error"></div>
+
+        <label>Address:</label>
+        <input type="text" id="address" />
+        <div id="addressError" class="error"></div>
+
+        <label>Products:</label>
+        <div id="productsContainer">
+            <!-- JS will inject product selectors here -->
+        </div>
+        <button type="button" onclick="addProduct()">+ Add Product</button>
+
+        <button type="submit">Generate Receipt</button>
+    </form>
+
+    <div class="receipt" id="receiptBox">
+        <h3>🧾 Receipt</h3>
+        <p><strong>Date:</strong> <span id="receiptDate"></span></p>
+        <p><strong>Name:</strong> <span id="receiptName"></span></p>
+        <p><strong>Phone:</strong> <span id="receiptPhone"></span></p>
+        <p><strong>Email:</strong> <span id="receiptEmail"></span></p>
+        <p><strong>Address:</strong> <span id="receiptAddress"></span></p>
+        <h4>Products:</h4>
+        <div id="receiptProducts"></div>
+        <h4>Total: ₹<span id="receiptTotal"></span></h4>
+    </div>
+
+    <script src="script.js">
+
+    </script>
+</body>
+
+</html>
